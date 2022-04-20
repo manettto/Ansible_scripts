@@ -1,0 +1,4 @@
+- name: add ssh key for melany
+  authorized_key:
+       user: melany
+       key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHOKGR0OPHoTgbxfyRAGTO+pqWldLpvdVpJLZ944YrIF ansible"
