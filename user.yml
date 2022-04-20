@@ -1,0 +1,24 @@
+- hosts: all
+  become: true
+  tasks:
+
+          - name: create melany user
+            tags: always
+            user:
+                    name: melany
+                    groups: root
+
+          - name: add ssh key for melany
+            tags: always
+            authorized_key:
+                    user: melany
+                    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHOKGR0OPHoTgbxfyRAGTO+pqWldLpvdVpJLZ944YrIF ansible"
+
+
+          - name: add sudoers file for melany
+            tags: always
+            copy: 
+              src: sudoer_melany
+              dest: /etc/sudoers.d/melany
+              owner: root
+              group: root 
